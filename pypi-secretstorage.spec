@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x6646265B586B83CB (mitya57@gmail.com)
 #
 Name     : pypi-secretstorage
-Version  : 3.3.2
-Release  : 54
-URL      : https://files.pythonhosted.org/packages/bc/3b/6e294fcaa5aed4059f2aa01a1ee7d343953521f8e0f6965ebcf63c950269/SecretStorage-3.3.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/bc/3b/6e294fcaa5aed4059f2aa01a1ee7d343953521f8e0f6965ebcf63c950269/SecretStorage-3.3.2.tar.gz
-Source1  : https://files.pythonhosted.org/packages/bc/3b/6e294fcaa5aed4059f2aa01a1ee7d343953521f8e0f6965ebcf63c950269/SecretStorage-3.3.2.tar.gz.asc
+Version  : 3.3.3
+Release  : 55
+URL      : https://files.pythonhosted.org/packages/53/a4/f48c9d79cb507ed1373477dbceaba7401fd8a23af63b837fa61f1dcd3691/SecretStorage-3.3.3.tar.gz
+Source0  : https://files.pythonhosted.org/packages/53/a4/f48c9d79cb507ed1373477dbceaba7401fd8a23af63b837fa61f1dcd3691/SecretStorage-3.3.3.tar.gz
+Source1  : https://files.pythonhosted.org/packages/53/a4/f48c9d79cb507ed1373477dbceaba7401fd8a23af63b837fa61f1dcd3691/SecretStorage-3.3.3.tar.gz.asc
 Summary  : Python bindings to FreeDesktop.org Secret Service API
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -63,10 +63,10 @@ python3 components for the pypi-secretstorage package.
 
 
 %prep
-%setup -q -n SecretStorage-3.3.2
-cd %{_builddir}/SecretStorage-3.3.2
+%setup -q -n SecretStorage-3.3.3
+cd %{_builddir}/SecretStorage-3.3.3
 pushd ..
-cp -a SecretStorage-3.3.2 buildavx2
+cp -a SecretStorage-3.3.3 buildavx2
 popd
 
 %build
@@ -74,7 +74,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656406623
+export SOURCE_DATE_EPOCH=1660517868
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -96,7 +96,7 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-secretstorage
-cp %{_builddir}/SecretStorage-3.3.2/LICENSE %{buildroot}/usr/share/package-licenses/pypi-secretstorage/b23eb98a71ae4e71270872be9d167f785ad043d1
+cp %{_builddir}/SecretStorage-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-secretstorage/b23eb98a71ae4e71270872be9d167f785ad043d1
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
